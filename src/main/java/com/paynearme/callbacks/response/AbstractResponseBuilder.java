@@ -1,6 +1,7 @@
 package com.paynearme.callbacks.response;
 
 import com.paynearme.callbacks.enums.Version;
+import org.jdom2.Attribute;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.Namespace;
@@ -14,6 +15,7 @@ public abstract class AbstractResponseBuilder {
     protected Document document;
     protected Element rootElement;
     protected final Version version;
+    protected Attribute schemaLocation;
 
     public AbstractResponseBuilder(Version version) {
         this.version = version;
@@ -40,6 +42,10 @@ public abstract class AbstractResponseBuilder {
         document = new Document();
         namespace = Namespace.getNamespace("t", "http://www.paynearme.com/api/pnm_xmlschema_" + version.name());
         xsiNamespace = Namespace.getNamespace("xsi", "http://www.w3.org/2001/XMLSchema-instance");
+        schemaLocation = new Attribute("schemaLocation",
+                String.format("http://www.paynearme.com/api/pnm_xmlschema_%s pnm_xmlschema_%s.xsd", version.name(),
+                        version.name()), xsiNamespace);
+
 
         return document;
     }

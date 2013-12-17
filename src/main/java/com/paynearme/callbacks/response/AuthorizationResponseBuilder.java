@@ -65,16 +65,17 @@ public class AuthorizationResponseBuilder extends AbstractResponseBuilder {
     @Override
     public Document build() {
         super.build();
-        rootElement = new Element("pnm_authorization_response", namespace);
+        rootElement = new Element("payment_authorization_response", namespace);
         rootElement.addNamespaceDeclaration(xsiNamespace);
+        rootElement.setAttribute(schemaLocation);
         rootElement.setAttribute("version", version.value);
         document.addContent(rootElement);
 
         Element authorization = createElement(rootElement, "authorization");
         createElement(authorization, "pnm_order_identifier", orderIdentifier);
         createElement(authorization, "accept_payment", acceptPayment ? "yes" : "no");
-        createElement(authorization, "receipt", receipt);
-        createElement(authorization, "memo", memo);
+        if (receipt != null) createElement(authorization, "receipt", receipt);
+        if (memo != null) createElement(authorization, "memo", memo);
         createElement(authorization, "site_payment_identifier", sitePaymentIdentifier);
 
         return document;
