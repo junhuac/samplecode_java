@@ -70,8 +70,7 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>15.0</version>
-            <classifier>cdi1.0</classifier>
+            <version>17.0</version>
         </dependency>
         <dependency>
             <groupId>commons-codec</groupId>

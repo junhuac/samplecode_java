@@ -34,7 +34,7 @@ public class ExampleConfirmationHandler implements ConfirmationHandler {
         // Do some extra functions that the 'echo server' does for debugging
         Map<String, String[]> params = request.getParameterMap();
         PrintWriter writer = response.getWriter();
-        Version apiVersion = Version.getVersionFromString(params.get("version")[0]);
+        Version apiVersion = Version.getVersionFromString(request.getParameter("version"));
         try {
             String special = params.get("site_order_annotation")[0];
             if (special.startsWith("confirm_delay_")) {
