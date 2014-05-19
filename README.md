@@ -4,7 +4,7 @@ PayNearMe Callback Bootstrap
 This is a starting point for integrating your service with PayNearMe's callback
 system. Provided in this project is a framework for handling incoming callbacks
 from PayNearMe and constructing the appropriate response. Each callback method
-includes an example implementation that is wired into the servlet.
+includes an example implementation that is wired into the servlet
 
 This is able to run in servlet containers which support the 3.x servlet API,
 such as Tomcat, JBoss, and Jetty.
