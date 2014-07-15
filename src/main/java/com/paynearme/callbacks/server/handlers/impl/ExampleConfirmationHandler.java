@@ -73,14 +73,15 @@ public class ExampleConfirmationHandler implements ConfirmationHandler {
         String pnmOrderIdentifier = request.getParameter("pnm_order_identifier");
         String pnmPaymentIdentifier = request.getParameter("pnm_payment_identifier");
         String status = request.getParameter("status");
-
-        /* You must lookup the pnm_order_identifier in your business system and
-           prevent double posting. In the event of a duplicate, ignore the
-           posting(do not reply) if you have already responded at least once for
-           the pnm_order_identifier in question.
-           No stub code is provided for this check, and is left as a
-           responsibility of the implementor.
-         */
+        
+        /* You must lookup the pnm_payment_identifier in your business system and prevent double posting.
+           In the event of a duplicate callback from PayNearMe ( this can sometimes happen in a race or
+           retry condition) you must respond to all duplicates, but do not post the payment.
+           
+           No stub code is provided for this check, and is left to the responsibility of the implementor.
+           
+           Now that you have responded to a /confirm, you need to keep a record of this pnm_payment_identifier.
+        */
 
         if ((pnmOrderIdentifier == null || pnmOrderIdentifier.equals(""))
                 && (pnmPaymentIdentifier == null || pnmPaymentIdentifier.equals(""))) {
