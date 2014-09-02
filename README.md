@@ -12,6 +12,9 @@ such as Tomcat, JBoss, and Jetty.
 Building
 ========
 
+Java 1.7 is required.  If you have multiple versions you will need to either set
+JAVA_HOME or set pom.xml to use the correct JVM version as the target version.
+
 Maven is required to build this project. Once maven is installed, simply run
 
     mvn clean install
