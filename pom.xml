@@ -36,7 +36,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jettyVersion>9.1.0.v20131115</jettyVersion>
+        <jettyVersion>9.2.22.v20170606</jettyVersion>
         <logLevel>debug</logLevel>
     </properties>
 
